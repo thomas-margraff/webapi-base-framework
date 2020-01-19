@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Net.Http.Headers;
 
 namespace webapi_base_framework
 {
@@ -25,6 +26,20 @@ namespace webapi_base_framework
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                var allowedOrigins = Configuration.GetValue<string>("AllowedOrigins")?.Split(",") ?? new string[0];
+
+                // https://docs.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-3.1
+                options.AddPolicy("localAngularApp",
+                    builder => builder
+                        .WithOrigins(allowedOrigins)
+                        .AllowAnyMethod()
+                        .WithHeaders(HeaderNames.Authorization, "Authorization")
+                        .WithHeaders(HeaderNames.ContentType, "multipart/form-data")
+                        .AllowCredentials());
+            });
+
             services.AddControllers();
         }
 
@@ -35,10 +50,16 @@ namespace webapi_base_framework
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseHsts();
+            }
 
             app.UseHttpsRedirection();
-
+            app.UseStaticFiles();
             app.UseRouting();
+            // enable cors
+            app.UseCors("localAngularApp");
 
             app.UseAuthorization();
 
