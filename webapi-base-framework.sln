@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "webapi-base-framework", "webapi-base-framework\webapi-base-framework.csproj", "{F3491BA1-2C69-4B2A-B55B-8DA6CBCE7205}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiAuthJWT", "webapi-base-jwt\WebApiAuthJWT.csproj", "{EC73134B-6531-45BC-B611-45867C6760C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F3491BA1-2C69-4B2A-B55B-8DA6CBCE7205}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3491BA1-2C69-4B2A-B55B-8DA6CBCE7205}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3491BA1-2C69-4B2A-B55B-8DA6CBCE7205}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC73134B-6531-45BC-B611-45867C6760C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC73134B-6531-45BC-B611-45867C6760C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC73134B-6531-45BC-B611-45867C6760C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC73134B-6531-45BC-B611-45867C6760C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
