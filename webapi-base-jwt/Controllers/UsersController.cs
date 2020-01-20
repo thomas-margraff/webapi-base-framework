@@ -30,7 +30,7 @@ namespace WebApiAuth.Controllers
             return Ok(user);
         }
 
-        [HttpGet]
+        [HttpGet("getall")]
         public IActionResult GetAll()
         {
             var users = _userService.GetAll();
